@@ -1,0 +1,26 @@
+name: security
+
+services:
+  security:
+    build:
+      context: ./security_container
+      dockerfile: Dockerfile
+    container_name: security_fpm
+    networks:
+      - security-network
+    env_file:
+      - ./security_container/security/.env
+
+  publisher:
+    build:
+      context: ./nginx_container
+      dockerfile: Dockerfile
+    container_name: security_publisher
+    depends_on:
+      - security
+    networks:
+      - security-network
+
+networks:
+  security-network:
+    driver: bridge

@@ -1,0 +1,27 @@
+name: security
+
+services:
+  security:
+    environment:
+      - LOG_LEVEL=error
+      - APP_DEBUG=false
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "3"
+    restart: always
+
+  publisher:
+    ports:
+      - "9000:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "3"
+    restart: always
+
+networks:
+  cobrix-network:
+    driver: bridge
