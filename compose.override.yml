@@ -1,0 +1,14 @@
+name: security
+
+services:
+  security:
+    environment:
+      - APP_DEBUG=true
+
+  publisher:
+    ports:
+      - "9000:80"
+
+networks:
+  security-network:
+    driver: bridge
