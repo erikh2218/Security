@@ -21,6 +21,16 @@ services:
     networks:
       - security-network
 
+  gateway:
+    build:
+      context: ./gateway_container
+      dockerfile: Dockerfile
+    container_name: security_gateway
+    depends_on:
+      - publisher
+    networks:
+      - security-network
+
 networks:
   security-network:
     driver: bridge

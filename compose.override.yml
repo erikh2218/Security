@@ -5,9 +5,9 @@ services:
     environment:
       - APP_DEBUG=true
 
-  publisher:
+  gateway:
     ports:
-      - "9000:80"
+      - "9001:80"
 
 networks:
   security-network:
