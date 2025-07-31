@@ -21,7 +21,3 @@ services:
         max-size: "5m"
         max-file: "3"
     restart: always
-
-networks:
-  cobrix-network:
-    driver: bridge
